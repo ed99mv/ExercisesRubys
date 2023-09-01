@@ -1,30 +1,22 @@
-def caesar_cipher(string, moves)
-    # implements caesar cipher
-    if string.nil? || string.empty?
-    return""
-    end
-    for e in 0...string.length do
-        p ("a".."z")=== string[e]
-        if ("a".."z")=== string[e] || ("A".."Z")===string[e]
-
-            string_log= string[e].ord
-            string_log +=moves
-
-            if string_log>122 && ("a".."z")===string[e]
-                aux=string_log-122
-                string_log= 96+aux
-            end
-
-            if string_log>90 && ("A".."Z")===string[e]
-                aux=string_log-90
-                string_log= 64+aux
-            end
-
-            string[e]=string_log.chr
-        end
-    end
-    string
-
+def  cipher(chain, base, offset)
+  (((chain.ord - base) + offset) % 26 + base).chr
 end
 
-p caesar_cipher("what a string", 5)
+def caesar_cipher(s, offset)
+  if s.nil? || s.empty?
+    return ""
+  end
+  s.chars.map do |c|
+    case
+    when chain.match(/[a-z]/)
+      cipher(c, 'a'.ord, offset)
+    when chain.match(/[A-Z]/)
+      cipher(chain, 'A'.ord, offset)
+    else
+     chain
+    end
+  end.join('')
+end
+texto ="What a string!"
+cipher_text = caesar_cipher(texto,5)
+p cipher_text
