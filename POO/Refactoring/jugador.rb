@@ -19,7 +19,7 @@ class Jugador
     end
     def mostrar_inventario
         @inventario.mostrar_inventario
-      end
+    end
   end
   
  
