@@ -1,0 +1,110 @@
+-- database: c:\exercisesRuby\ExercisesRubys\DB\practica3.sqlite3
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "Estudiantes";
+
+-- CREATE TABLE Estudiantes (
+--     EstudianteId INT,
+--     Nombre VARCHAR(255)
+-- );
+
+-- DROP TABLE Estudiantes;
+
+-- CREATE TABLE Calificaciones (
+--     Id INT,
+--     Calificacion VARCHAR(255),
+--     EstudianteId INT
+-- );
+
+-- CREATE TABLE Clases (
+--     Id INT,
+--     NombreClase VARCHAR(255),
+--     EstudianteId INT
+-- );
+
+-- Puede utilizar este comando para confirmar que los cambios se están
+-- realizando en la tabla correctamente.
+-- SELECT * from Estudiantes;
+
+
+-- INSERT INTO Estudiantes VALUES (1, 'Juan Pérez');
+-- INSERT INTO Estudiantes VALUES (2, 'Ana Fernandez');
+-- INSERT INTO Estudiantes VALUES (3, 'Bryan Valenciano');
+-- INSERT INTO Estudiantes VALUES (4, 'Alexa Gamboa');
+-- DELETE FROM Estudiantes WHERE EstudianteId = 4 OR EstudianteId= 5;
+-- INSERT INTO Estudiantes VALUES (5, 'Charles Gamboa');
+
+-- INSERT INTO Calificaciones VALUES (1, '100', 1);
+-- INSERT INTO Calificaciones VALUES (2, '95', 2);
+
+-- INSERT INTO Clases VALUES (1, 'Programación 1', 3);
+-- INSERT INTO Clases VALUES (2, 'Bases de Datos 1', 4);
+
+-- SELECT * from Estudiantes;
+
+-- SELECT Estudiantes.nombre, Calificaciones.nombreClase
+-- FROM Estudiantes 
+-- RIGHT JOIN Calificaciones ON Estudiantes.estudianteId = Calificaciones.estudianteId;
+
+-- Crear la tabla de estudiantes
+CREATE TABLE Estudiantes (
+  id INT ,
+  nombre VARCHAR(50),
+  edad INT
+);
+
+-- Insertar datos en la tabla de estudiantes
+INSERT INTO Estudiantes (id, nombre, edad)
+VALUES (1, 'Juan', 20),
+       (2, 'Maria', 21),
+       (3, 'Pedro', 19),
+       (4, 'Pepito', 28),
+       (5, 'Chanchito', 38);
+
+ -- Eliminar las celdas que no están vacías      
+DELETE FROM Estudiantes WHERE id != '';
+
+--Cambiar un dato a una columna
+
+
+-- Crear la vista que filtra los estudiantes mayores de 20 años
+CREATE VIEW Estudiantes_Mayor_Edad AS
+SELECT nombre, edad
+FROM Estudiantes
+WHERE Edad >= 20;
+
+SELECT * FROM Estudiantes_Mayor_Edad;
+
+-- ACTUALIZAR UN DATO UNA CELDA 
+UPDATE Estudiantes SET edad = 28 WHERE id = 1;
+
+-- ELIMINAR UN DATO DE LA TABLA
+DELETE FROM Estudiantes WHERE id = 3;
+
+-- SELECCIONAR UNA COLUMNA
+SELECT nombre FROM Estudiantes;
+
+-- SELECCIONAR DOS COLUMNAS
+SELECT nombre, edad FROM Estudiantes;
+
+-- SELECCIONAR DOS COLUMNAS Y ORDENARLAS DE 
+-- MAYOR A MENOR POR MEDIO DE LA EDAD
+SELECT nombre, edad FROM Estudiantes 
+ORDER BY edad DESC;
+
+-- SELECCIONAR DOS COLUMNAS Y ORDENARLAS DE 
+-- MENOR A MAYOR POR MEDIO DE LA EDAD
+SELECT nombre, edad FROM Estudiantes
+ORDER BY edad ASC;
+
+
+-- ELIMINAR LOS ESPACIOS NULL
+UPDATE Estudiantes SET id = '' WHERE id IS NULL;
+UPDATE Estudiantes SET nombre = '' WHERE nombre IS NULL;
+UPDATE Estudiantes SET edad = '' WHERE edad IS NULL;
+
+-- ELMINAR UNA COLUMNA
+ALTER TABLE Estudiantes DROP COLUMN Apellido;
+
+ALTER TABLE Estudiantes ADD COLUMN Apellido VARCHAR(255);

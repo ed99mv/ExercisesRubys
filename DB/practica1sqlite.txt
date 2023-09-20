@@ -1,0 +1,16 @@
+-- database: c:\exercisesRuby\ExercisesRubys\DB\estudpract.sqlite3
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "Estudiantes";
+CREATE TABLE Estudiantes (
+    IdEstudiante INTEGER PRIMARY KEY NULL,
+    Nombre TEXT,
+    Test TEXT
+);
+ALTER TABLE Estudiantes
+ ADD Edad Varchar NULL;
+
+ALTER TABLE Estudiantes RENAME COLUMN Test TO Apellido;
+
+-- DROP TABLE Estudiantes
